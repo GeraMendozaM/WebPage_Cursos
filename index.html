@@ -1,0 +1,87 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Incio de Sesión - Wonderful English</title>
+    <link href="Content/LoginStyleV2.css" rel="stylesheet" />
+
+    <link href="Images/logo.ico" rel="icon" type="text/css" />
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        function ShowLoader() {
+            $('.loader').css({ "visibility": "visible" });
+
+
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            sleep(2000).then(() => { LoginCursos(); });
+
+        }
+
+        function LoginCursos() {
+
+            var usuario = $('#txtUsuario').val();
+            var contrasena = $('#txtContrasena').val();
+
+            if (usuario == 'alumno' && contrasena == 'alumno123') {
+                window.location.href = 'Home/index.html';
+            }
+            else {
+                location.reload();
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="loader"></div>
+
+    <div class="divContainer">
+
+        <div class="divLogo">
+            <img src="Images/logoLogin.fw.png" />
+        </div>
+        <div class="divLogin">
+            <div id="head">
+                <h1>Iniciar Sesión</h1>
+            </div>
+
+            <form>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Usuario:</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="txtUsuario" name="txtUser" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Contraseña:</label>
+                        <div class="col-sm-7">
+                            <input type="password" id="txtContrasena" name="txtPassword" class="form-control" />
+                        </div>
+                    </div>
+
+                    <label class="error">
+
+                    </label>
+
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-5">
+                            <input type="button" name="Entrar" value="Login" class="btn btn-default" onclick="ShowLoader()" style="width:150px;" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
